@@ -8,7 +8,15 @@ alias ll="ls -l"
 alias du="du -h"
 alias df="df -h"
 alias su="su -l"
-
-alias tac="gtac"
 alias vi="nvim"
+
+# git
+alias ga="git add"
+alias gc="git commit"
+alias gco="git checkout"
+alias gst="git status"
+alias gd='git diff'
+alias gdca='git diff --cached'
+alias glg='git log --stat'
+alias glgg='git log --graph'
 

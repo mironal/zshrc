@@ -35,3 +35,5 @@ source '/Users/miro/bin/google-cloud-sdk/path.zsh.inc'
 
 # The next line enables shell command completion for gcloud.
 source '/Users/miro/bin/google-cloud-sdk/completion.zsh.inc'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
