@@ -11,8 +11,21 @@ setopt nobeep
 setopt nolistbeep
 setopt magic_equal_subst
 
-HISTSIZE=1000000
-SAVEHIST=1000000
+## History file configuration
+[ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
+HISTSIZE=50000
+SAVEHIST=10000
+
+## History command configuration
+setopt extended_history       # record timestamp of command in HISTFILE
+setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt hist_ignore_dups       # ignore duplicated commands history list
+setopt hist_ignore_space      # ignore commands that start with space
+setopt hist_verify            # show command with history expansion to user before running it
+setopt inc_append_history     # add commands to HISTFILE in order of execution
+setopt share_history          # share command history data
+
+## Editor configuration
 EDITOR=nvim
 
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
@@ -37,3 +50,7 @@ source '/Users/miro/bin/google-cloud-sdk/path.zsh.inc'
 source '/Users/miro/bin/google-cloud-sdk/completion.zsh.inc'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+aliasList=("${(@f)$(alias)}")
+echo You can use this alias: ${aliasList[$RANDOM % ${#aliasList[@]} ]}
+

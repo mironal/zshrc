@@ -10,8 +10,6 @@ zplug "zsh-users/zsh-completions"
 
 zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 
-zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/history", from:oh-my-zsh
 zplug "lukechilds/zsh-nvm"
 zplug "paulirish/git-open", as:plugin
 
