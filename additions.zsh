@@ -1,6 +1,6 @@
 # エンター押すとlsとgit statusを表示
 # http://qiita.com/yuyuchu3333/items/e9af05670c95e2cc5b4d
-function do_enter() {
+function __do_enter() {
   if [ -n "$BUFFER" ]; then
     zle accept-line
     return 0
@@ -16,8 +16,8 @@ function do_enter() {
   zle reset-prompt
   return 0
 }
-zle -N do_enter
-bindkey '^m' do_enter
+zle -N __do_enter
+bindkey '^m' __do_enter
 
 # go lang
 export GOPATH=$HOME/.go
@@ -25,9 +25,8 @@ export GOPATH=$HOME/.go
 # added by travis gem
 [ -f /Users/miro/.travis/travis.sh ] && source /Users/miro/.travis/travis.sh
 
-# unicode 対応 watch
 # https://excess.org/article/2009/07/watch1-bash-unicode/
-botch() {
+botch() { # unicode 対応 watch
     while true; do
         (echo -en '\033[H'
         CMD="$@"
@@ -44,16 +43,14 @@ done
 
 ## https://github.com/junegunn/fzf/wiki/examples#git
 
-# gchbr - checkout git branch
-gchbr() {
+fz_gchbr() { # checkout git branch filter by fzf
   local branches branch
   branches=$(git branch -vv) &&
   branch=$(echo "$branches" | fzf +m) &&
   git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
 
-# gchbrr - checkout git branch (including remote branches)
-gchbrr() {
+fz_gchbrr() { # checkout git branch (including remote branches) filter by fzf
   local branches branch
   branches=$(git branch --all | grep -v HEAD) &&
   branch=$(echo "$branches" |
@@ -61,8 +58,7 @@ gchbrr() {
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
-# gcbrm - remove git branches
-gcbrm() {
+fz_gcbrDEL() { # gcbrm - remove git branches filter by fzf
   local branches branch
   branches=$(git branch -vv) &&
   branch=$(echo "$branches" | fzf -m) &&

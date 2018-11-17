@@ -1,4 +1,5 @@
 autoload -U compinit && compinit
+autoload -U colors && colors
 
 source ~/zshrc/zplug_plugins.zsh
 source ~/zshrc/aliases.zsh
@@ -41,6 +42,10 @@ fi
 if which rbenv > /dev/null
 then
     eval "$(rbenv init -)"
+fi
+
+if [ -d ~/Library/Android/sdk/platform-tools ];then
+  export PATH=$PATH:~/Library/Android/sdk/platform-tools
 fi
 
 # The next line updates PATH for the Google Cloud SDK.

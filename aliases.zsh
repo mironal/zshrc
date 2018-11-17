@@ -12,7 +12,7 @@ alias vi="nvim"
 
 # git
 alias ga="git add"
-alias gc="git commit"
+alias gc="git commit -v"
 alias gco="git checkout"
 alias gst="git status"
 alias gd='git diff'
