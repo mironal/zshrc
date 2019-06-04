@@ -1,3 +1,4 @@
+export LANG=en_US.UTF-8
 autoload -U compinit && compinit
 autoload -U colors && colors
 
