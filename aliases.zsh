@@ -19,4 +19,5 @@ alias gd='git diff'
 alias gdca='git diff --cached'
 alias glg='git log --stat'
 alias glgg='git log --graph'
+alias gpulom='git pull origin master'
 

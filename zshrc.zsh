@@ -39,6 +39,10 @@ if [ -d ~/.rbenv/bin ];then
     export PATH=~/.rbenv/bin:$PATH
 fi
 
+if [ -d ~/github/flutter/flutter/bin ];then
+  export PATH=$PATH:~/github/flutter/flutter/bin
+fi
+
 if which rbenv > /dev/null
 then
     eval "$(rbenv init -)"
@@ -61,4 +65,5 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 aliasList=("${(@f)$(alias)}")
 echo You can use this alias: ${aliasList[$RANDOM % ${#aliasList[@]} ]}
 
+source ~/.iterm2_shell_integration.zsh
 
