@@ -10,7 +10,9 @@ zplug "zsh-users/zsh-completions"
 
 zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 
-zplug "lukechilds/zsh-nvm"
+export NVM_LAZY_LOAD=true # nvm 遅延ロード
+zplug "lukechilds/zsh-nvm" # nvm 自動インストール
+
 zplug "paulirish/git-open", as:plugin
 
 if zplug check "zsh-users/zsh-history-substring-search"; then
