@@ -7,6 +7,7 @@ CURRENT=$(cd $(dirname $0);pwd)
 source "${CURRENT}/zplug_plugins.zsh"
 source "${CURRENT}/aliases.zsh"
 source "${CURRENT}/additions.zsh"
+source "${CURRENT}/mint.zsh"
 
 setopt auto_menu
 setopt auto_pushd
@@ -53,6 +54,10 @@ fi
 if [ -d ~/Library/Android/sdk/platform-tools ];then
   export PATH=$PATH:~/Library/Android/sdk/platform-tools
 fi
+if [ -d ~/Documents/flutter/bin ]; then
+  export PATH=$PATH:~/Documents/flutter/bin
+fi
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
