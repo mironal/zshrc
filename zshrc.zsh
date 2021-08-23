@@ -7,7 +7,6 @@ CURRENT=$(cd $(dirname $0);pwd)
 source "${CURRENT}/zplug_plugins.zsh"
 source "${CURRENT}/aliases.zsh"
 source "${CURRENT}/additions.zsh"
-source "${CURRENT}/mint.zsh"
 
 setopt auto_menu
 setopt auto_pushd
@@ -46,10 +45,10 @@ if [ -d ~/github/flutter/flutter/bin ];then
   export PATH=$PATH:~/github/flutter/flutter/bin
 fi
 
-if which rbenv > /dev/null
-then
-    eval "$(rbenv init -)"
-fi
+#if which rbenv > /dev/null
+#then
+#    eval "$(rbenv init -)"
+#fi
 
 if [ -d ~/Library/Android/sdk/platform-tools ];then
   export PATH=$PATH:~/Library/Android/sdk/platform-tools
