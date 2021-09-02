@@ -2,9 +2,11 @@ export LANG=en_US.UTF-8
 autoload -U compinit && compinit
 autoload -U colors && colors
 
-source ~/zshrc/zplug_plugins.zsh
-source ~/zshrc/aliases.zsh
-source ~/zshrc/additions.zsh
+CURRENT=$(cd $(dirname $0);pwd)
+
+source "${CURRENT}/zplug_plugins.zsh"
+source "${CURRENT}/aliases.zsh"
+source "${CURRENT}/additions.zsh"
 
 setopt auto_menu
 setopt auto_pushd
@@ -52,18 +54,13 @@ if [ -d ~/Library/Android/sdk/platform-tools ];then
   export PATH=$PATH:~/Library/Android/sdk/platform-tools
 fi
 
-# The next line updates PATH for the Google Cloud SDK.
-source '/Users/miro/bin/google-cloud-sdk/path.zsh.inc'
-
-# The next line enables shell command completion for gcloud.
-source '/Users/miro/bin/google-cloud-sdk/completion.zsh.inc'
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+
+# どんなエイリアスがあったか思い出せるようにするやつ
 aliasList=("${(@f)$(alias)}")
 echo You can use this alias: ${aliasList[$RANDOM % ${#aliasList[@]} ]}
-
-source ~/.iterm2_shell_integration.zsh
-
